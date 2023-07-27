@@ -63,7 +63,7 @@ public class Main {
 
     public static void checkLeapYear(int yearNum) {
 
-        if (yearNum % 4 == 0 && ( yearNum % 100 != 0 || yearNum % 400 == 0  )) {
+        if (yearNum % 4 == 0 && (yearNum % 100 != 0 || yearNum % 400 == 0)) {
             System.out.println(yearNum + " год является високосным");
         } else {
             System.out.println(yearNum + " год не является високосным");
@@ -77,14 +77,14 @@ public class Main {
             } else if (yearOSChecking <= 2015) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
-        } else if (clientOSSChecking==1) {
-                if (yearOSChecking>=2015) {
-                    System.out.println("Установите версию приложения для Android по ссылке");
-                } else if ( yearOSChecking<=2015) {
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
-                }
+        } else if (clientOSSChecking == 1) {
+            if (yearOSChecking >= 2015) {
+                System.out.println("Установите версию приложения для Android по ссылке");
+            } else if (yearOSChecking <= 2015) {
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");
             }
         }
+    }
 
 
     public static int calculationDeliveryTime(int deliveryDistance) {
