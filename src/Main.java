@@ -63,7 +63,7 @@ public class Main {
 
     public static void checkLeapYear(int yearNum) {
 
-        if (yearNum % 4 == 0 || yearNum % 100 != 0 || yearNum % 400 == 0) {
+        if (yearNum % 4 == 0 && ( yearNum % 100 != 0 || yearNum % 400 == 0  )) {
             System.out.println(yearNum + " год является високосным");
         } else {
             System.out.println(yearNum + " год не является високосным");
@@ -77,10 +77,18 @@ public class Main {
             } else if (yearOSChecking <= 2015) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
+        } else if (clientOSSChecking==1) {
+                if (yearOSChecking>=2015) {
+                    System.out.println("Установите версию приложения для Android по ссылке");
+                } else if ( yearOSChecking<=2015) {
+                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                }
+            }
         }
-    }
 
-    public static void calculationDeliveryTime(int deliveryDistance, int deliveryDay) {
+
+    public static int calculationDeliveryTime(int deliveryDistance) {
+        int deliveryDay = 1;
         if (deliveryDistance <= 20) {
             System.out.println("Потребуется дней: " + deliveryDay);
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
@@ -93,6 +101,7 @@ public class Main {
         } else if (deliveryDistance > 100) {
             System.out.println("Свыше 100 км доставки нет");
         }
+        return deliveryDay;
     }
 
 
@@ -105,13 +114,13 @@ public class Main {
 
     public static void task1B() {
         System.out.println("Задача 1B");
-        int year = 2024;
+        int year = 1700;
         checkLeapYear(year);
     }
 
     public static void task2() {
         System.out.println("Задача 2");
-        int clientOSS = 0;
+        int clientOSS = 1;
         int currentYear = LocalDate.now().getYear();
         checkSoftwareVersion(currentYear, clientOSS);
     }
@@ -119,7 +128,6 @@ public class Main {
     public static void task3() {
         System.out.println("Задача 2");
         int deliveryDistance = 101;
-        int deliveryDay = 1;
-        calculationDeliveryTime(deliveryDistance, deliveryDay);
+        int totalTime = calculationDeliveryTime(deliveryDistance);
     }
 }
